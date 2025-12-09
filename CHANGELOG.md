@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/betterhyq/npx-mcp-template/compare/v0.0.3...v0.0.4)
+
+### 📖 Documentation
+
+- **readme:** 配置automd ([635e063](https://github.com/betterhyq/npx-mcp-template/commit/635e063))
+
+### ❤️ Contributors
+
+- Heyongqi10 <heyongqi10@jd.com>
+
 ## v0.0.3
 
 [compare changes](https://github.com/betterhyq/npx-mcp-template/compare/v0.0.2...v0.0.3)
