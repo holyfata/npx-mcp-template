@@ -2,7 +2,7 @@
 	"name": "@betterhyq/npx-mcp-template",
 	"mcpName": "NPX MCP 服务器",
 	"description": "Template to develop mcp server by node",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"keywords": [
 		"AI",
 		"Agent",
