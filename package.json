@@ -18,6 +18,8 @@
 	},
 	"scripts": {
 		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage",
 		"build": "tsc && unbuild",
 		"start": "node ./dist/index.mjs",
 		"start:http": "node ./dist/index.mjs --http --port=4000",
@@ -43,6 +45,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.3.8",
 		"@types/node": "24.10.2",
+		"@vitest/coverage-v8": "4.0.15",
 		"changelogen": "0.6.2",
 		"commitizen": "4.3.1",
 		"cz-conventional-changelog": "3.3.0",
