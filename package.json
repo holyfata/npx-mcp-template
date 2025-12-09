@@ -28,7 +28,8 @@
 		"release:minor": "pnpm run release --minor",
 		"release:patch": "pnpm run release --patch",
 		"prepare": "husky",
-		"commit": "cz"
+		"commit": "cz",
+		"prepublishOnly": "pnpm run build"
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "1.24.3",
