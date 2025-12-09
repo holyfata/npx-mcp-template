@@ -1,8 +1,10 @@
+#!/usr/bin/env node
+
 import { z } from "zod";
 import { FastMCP } from "fastmcp";
 import { add } from "./add";
 
-export const main = (port: number) => {
+export const main = (_port: number) => {
   const server = new FastMCP({
     name: "NPX MCP TEMPLATE",
     version: "1.0.0",
@@ -21,11 +23,7 @@ export const main = (port: number) => {
   });
 
   server.start({
-    transportType: "httpStream",
-    httpStream: {
-      host: "0.0.0.0",
-      port: port,
-    },
+    transportType: "stdio",
   });
 };
 
