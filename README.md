@@ -1,25 +1,44 @@
-# NPX MCP 模版
+# @betterhyq/npx-mcp-template
 
-## 使用方式
+<!-- automd:badges license color=yellow -->
 
-### NPM 包安装方式
+[![npm version](https://img.shields.io/npm/v/@betterhyq/npx-mcp-template?color=yellow)](https://npmjs.com/package/@betterhyq/npx-mcp-template)
+[![npm downloads](https://img.shields.io/npm/dm/@betterhyq/npx-mcp-template?color=yellow)](https://npm.chart.dev/@betterhyq/npx-mcp-template)
+[![license](https://img.shields.io/github/license/betterhyq/npx-mcp-template?color=yellow)](https://github.com/betterhyq/npx-mcp-template/blob/main/LICENSE)
 
-- 全局装包
+<!-- /automd -->
 
-```bash
-npm i @betterhyq/npx-mcp-template -g
+## Usage
+
+Install the package:
+
+<!-- automd:pm-install global auto=false -->
+
+```sh
+# npm
+npm installg @betterhyq/npx-mcp-template
+
+# yarn
+yarn addg @betterhyq/npx-mcp-template
+
+# pnpm
+pnpm addg @betterhyq/npx-mcp-template
+
+# bun
+bun installg @betterhyq/npx-mcp-template
+
+# deno
+deno installg npm:@betterhyq/npx-mcp-template
 ```
 
-- 配置协议
+<!-- /automd -->
+
+### NPX Cursor Config
 
 ```json
 {
   "mcpServers": {
-    "NPX MCP TEMPLATE NPM INSTALL": {
-      "autoApprove": [
-        "Add Tool"
-      ],
-      "timeout": 180,
+    "npx-mcp-template": {
       "command": "npx",
       "type": "stdio",
       "transportType": "stdio",
@@ -32,27 +51,20 @@ npm i @betterhyq/npx-mcp-template -g
 }
 ```
 
-### HTTP 协议传输
+### Http Cursor Config
 
-- 全局装包
-
-```bash
-npm i @betterhyq/npx-mcp-template -g
-```
-
-- 启动项目
+start the service locally
 
 ```bash
 npx-mcp-template --http --port=4000
 ```
 
-- 配置协议
+set the config
 
 ```json
 {
   "mcpServers": {
-    "NPX MCP TEMPLATE LOCAL HTTP": {
-      "timeout": 180,
+    "npx-mcp-template": {
       "url": "http://0.0.0.0:4000/sse",
       "type": "sse",
       "transportType": "sse"
@@ -60,3 +72,24 @@ npx-mcp-template --http --port=4000
   }
 }
 ```
+
+## License
+
+<!-- automd:contributors license=MIT -->
+
+Published under the [MIT](https://github.com/betterhyq/npx-mcp-template/blob/main/LICENSE) license.
+Made by [community](https://github.com/betterhyq/npx-mcp-template/graphs/contributors) 💛
+<br><br>
+<a href="https://github.com/betterhyq/npx-mcp-template/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=betterhyq/npx-mcp-template" />
+</a>
+
+<!-- /automd -->
+
+<!-- automd:with-automd -->
+
+---
+
+_🤖 auto updated with [automd](https://automd.unjs.io)_
+
+<!-- /automd -->
