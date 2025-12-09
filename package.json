@@ -1,8 +1,8 @@
 {
-	"name": "@betterhyq/npx-mcp-template",
-	"mcpName": "NPX MCP 服务器",
-	"description": "Template to develop mcp server by node",
-	"version": "0.0.6",
+	"name": "packageName",
+	"mcpName": "mcpName",
+	"description": "This is a mcp server",
+	"version": "0.0.0",
 	"keywords": [
 		"AI",
 		"Agent",
@@ -20,11 +20,11 @@
 		"registry": "https://registry.npmjs.org/"
 	},
 	"bin": {
-		"npx-mcp-template": "./dist/index.mjs"
+		"packageCommand": "./dist/index.mjs"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/betterhyq/npx-mcp-template"
+		"url": "https://github.com/betterhyq/repository"
 	},
 	"scripts": {
 		"test": "vitest run",
