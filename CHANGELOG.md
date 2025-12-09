@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/betterhyq/npx-mcp-template/compare/v0.0.2...v0.0.3)
+
+### 🏡 Chore
+
+- 忽略测试输出 ([ad537ff](https://github.com/betterhyq/npx-mcp-template/commit/ad537ff))
+
+### ✅ Tests
+
+- 配置测试框架 ([e610fa3](https://github.com/betterhyq/npx-mcp-template/commit/e610fa3))
+
+### 🤖 CI
+
+- **test:** 配置测试流水线 ([c9b8a70](https://github.com/betterhyq/npx-mcp-template/commit/c9b8a70))
+
+### ❤️ Contributors
+
+- Heyongqi10 <heyongqi10@jd.com>
+
 ## v0.0.2
 
 [compare changes](https://github.com/betterhyq/npx-mcp-template/compare/v0.0.1...v0.0.2)
