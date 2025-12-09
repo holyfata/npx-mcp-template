@@ -17,7 +17,7 @@
 	"scripts": {
 		"build": "tsc && unbuild",
 		"start": "node ./dist/index.mjs",
-		"check": "biome check --write"
+		"check": "biome check --write --unsafe"
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "1.24.3",
