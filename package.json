@@ -4,7 +4,9 @@
 	"type": "module",
 	"main": "./dist/index.mjs",
 	"types": "./dist/index.d.mts",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"publishConfig": {
 		"access": "public",
 		"registry": "https://registry.npmjs.org/"
@@ -19,6 +21,7 @@
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "1.24.3",
+		"commander": "14.0.2",
 		"fastmcp": "3.25.3",
 		"zod": "4.1.13"
 	},
