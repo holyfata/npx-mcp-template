@@ -11,8 +11,8 @@ if [ -z "$ORIGINAL_NAME" ]; then
     exit 1
 fi
 
-# 将 @betterhyq/ 替换为 @dj-lib/
-TEMP_NAME=$(echo "$ORIGINAL_NAME" | sed 's/@betterhyq\//@dj-lib\//')
+# 将 @betterhyq/ 替换为 @jd/
+TEMP_NAME=$(echo "$ORIGINAL_NAME" | sed 's/@betterhyq\//@jd\//')
 
 # 如果名称没有变化，说明不包含 @betterhyq/
 if [ "$ORIGINAL_NAME" = "$TEMP_NAME" ]; then
@@ -24,19 +24,19 @@ fi
 # 定义清理函数，确保在脚本退出时还原
 cleanup() {
     echo "正在还原 package.json 的 name 字段..."
-    sed -i '' "s|@dj-lib/|@betterhyq/|g" "$PACKAGE_JSON"
+    sed -i '' "s|@jd/|@betterhyq/|g" "$PACKAGE_JSON"
     echo "已还原 name 字段为: $ORIGINAL_NAME"
 }
 
 # 注册清理函数，在脚本退出时（正常或异常）都会执行
 trap cleanup EXIT
 
-# 修改 name 字段：将 @betterhyq/ 替换为 @dj-lib/
+# 修改 name 字段：将 @betterhyq/ 替换为 @jd/
 echo "正在修改 package.json 的 name 字段..."
 echo "原始值: $ORIGINAL_NAME"
 echo "临时值: $TEMP_NAME"
 
-sed -i '' "s|@betterhyq/|@dj-lib/|g" "$PACKAGE_JSON"
+sed -i '' "s|@betterhyq/|@jd/|g" "$PACKAGE_JSON"
 
 echo "已修改 name 字段为: $TEMP_NAME"
 
