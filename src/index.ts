@@ -26,10 +26,31 @@ export const main = () => {
 		name: "Add Tool",
 		description: "Add two numbers",
 		parameters: z.object({
-			a: z.number(),
-			b: z.number(),
+			a: z.number().describe("A Number"),
+			b: z.number().describe("B Number"),
 		}),
-		execute: async (args) => add(args),
+		execute: async (args) => {
+			if (!args.a || !args.b) {
+				return {
+					content: [
+						{
+							type: "text",
+							text: "Something error!",
+						},
+					],
+					isError: true,
+				};
+			}
+
+			return {
+				content: [
+					{
+						type: "text",
+						text: add(args),
+					},
+				],
+			};
+		},
 	});
 
 	if (http) {
