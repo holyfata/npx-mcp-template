@@ -46,7 +46,7 @@
 		"commit": "cz",
 		"push": "git push origin master",
 		"prepublishOnly": "pnpm run build",
-		"postinstall": "chmod +x ./jd-publish.sh",
+		"setPermission": "chmod +x ./jd-publish.sh",
 		"publish:jd": "./jd-publish.sh"
 	},
 	"dependencies": {
