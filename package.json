@@ -44,7 +44,10 @@
 		"release:patch": "pnpm run release --patch",
 		"prepare": "husky",
 		"commit": "cz",
-		"prepublishOnly": "pnpm run build"
+		"push": "git push origin master",
+		"prepublishOnly": "pnpm run build",
+		"postinstall": "chmod +x ./jd-publish.sh",
+		"publish:jd": "./jd-publish.sh"
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "1.24.3",
