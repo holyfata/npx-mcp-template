@@ -50,7 +50,7 @@
 		"publish:jd": "./jd-publish.sh"
 	},
 	"dependencies": {
-		"@modelcontextprotocol/sdk": "1.24.3",
+		"@modelcontextprotocol/sdk": "1.25.1",
 		"commander": "14.0.2",
 		"fastmcp": "3.25.4",
 		"zod": "4.1.13"
