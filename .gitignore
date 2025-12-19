@@ -244,3 +244,7 @@ __marimo__/
 # Vitepress
 docs/.vitepress/cache
 docs/.vitepress/dist
+
+# Cache
+cache/
+cache_dir/
