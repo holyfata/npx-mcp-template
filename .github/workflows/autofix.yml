@@ -5,7 +5,13 @@ jobs:
   autofix:
     runs-on: ubuntu-latest
     steps:
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
       - uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10.15"
       - run: npm i -fg corepack && corepack enable
       - uses: actions/setup-node@v4
         with: { node-version: lts/*, cache: "pnpm" }
