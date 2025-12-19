@@ -9,6 +9,11 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10.15"
 dependencies = [
+    "autopep8==2.3.2",
+    "black==25.12.0",
+    "flake8==7.3.0",
+    "isort==7.0.0",
+    "mypy>=1.19.1",
     "oxygent==1.0.9",
 ]
 

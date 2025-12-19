@@ -1,7 +1,7 @@
 import asyncio
-
-from oxygent import MAS, oxy, Config
 import os
+
+from oxygent import MAS, Config, oxy
 
 Config.set_server_auto_open_webpage(False)
 Config.set_server_host("0.0.0.0")
@@ -18,12 +18,12 @@ oxy_space = [
         base_url=os.getenv("DEFAULT_LLM_BASE_URL"),
         model_name=os.getenv("DEFAULT_LLM_MODEL_NAME"),
         llm_params={"temperature": 0.01},
-        semaphore=4, # 并发量
-        timeout=240, # 最大执行时间
+        semaphore=4,  # 并发量
+        timeout=240,  # 最大执行时间
     ),
     oxy.ChatAgent(
         name="master_agent",
-        prompt = master_prompt,
+        prompt=master_prompt,
         is_master=True,
         llm_model="default_llm",
     ),
@@ -42,4 +42,3 @@ def entry_point():
 
 if __name__ == "__main__":
     entry_point()
-    
