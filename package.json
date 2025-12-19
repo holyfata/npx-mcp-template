@@ -40,7 +40,7 @@
 		"ai:check:lint": "uv run flake8 src_agent",
 		"ai:check:type": "uv run mypy --disable-error-code import-untyped src_agent",
 		"ai:check": "pnpm run ai:check:import && pnpm run ai:check:format && pnpm run ai:check:lint && pnpm run ai:check:type",
-		"ai:dev": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http: //llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run src-agent/main.py",
+		"ai:dev": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http: //llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run src_agent/main.py",
 		"ai:build": "uv build",
 		"preai:start": "uv pip install dist/npx_mcp_agent-0.1.0-py3-none-any.whl",
 		"ai:start": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http: //llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run start-agent",
