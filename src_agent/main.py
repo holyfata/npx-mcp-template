@@ -1,5 +1,4 @@
 import asyncio
-import os
 
 from oxygent import MAS, Config, oxy
 
@@ -14,9 +13,9 @@ master_prompt = """
 oxy_space = [
     oxy.HttpLLM(
         name="default_llm",
-        api_key=os.getenv("DEFAULT_LLM_API_KEY"),
-        base_url=os.getenv("DEFAULT_LLM_BASE_URL"),
-        model_name=os.getenv("DEFAULT_LLM_MODEL_NAME"),
+        api_key="EMPTY",
+        base_url="http://llm-32b.jd.com/v1/chat/completions",
+        model_name="qwen25-32b-native",
         llm_params={"temperature": 0.01},
         semaphore=4,  # 并发量
         timeout=240,  # 最大执行时间

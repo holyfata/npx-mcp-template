@@ -15,6 +15,7 @@ dependencies = [
     "isort==7.0.0",
     "mypy==1.19.1",
     "oxygent==1.0.9",
+    "pyinstaller>=6.17.0",
     "pytest==9.0.2",
 ]
 
