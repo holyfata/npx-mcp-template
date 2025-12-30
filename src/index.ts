@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
+import { fetchSSEAnswer } from '@betterhyq/ask-oxygent';
 import { loadConfig } from 'c12';
 import { defineCommand, runMain } from 'citty';
 import { FastMCP } from 'fastmcp';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
-
-import { fetchSSEAnswer } from './askAgent';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
