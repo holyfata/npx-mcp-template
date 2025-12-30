@@ -13,15 +13,7 @@ keywords = ["AI", "Agent", "MCP", "BDSH"]
 dependencies = ["oxygent==1.0.10"]
 
 [project.optional-dependencies]
-dev = [
-	"autopep8==2.3.2",
-	"black==25.12.0",
-	"flake8==7.3.0",
-	"isort==7.0.0",
-	"mypy==1.19.1",
-	"pyinstaller==6.17.0",
-	"pytest==9.0.2",
-]
+dev = ["mypy==1.19.1", "pyinstaller==6.17.0", "pytest==9.0.2", "ruff==0.8.4"]
 
 [project.scripts]
 start-agent = "src_agent.main:entry_point"
@@ -29,15 +21,29 @@ start-agent = "src_agent.main:entry_point"
 [tool.hatch.build.targets.wheel]
 only-include = ["src_agent/"]
 
-[tool.black]
+[tool.ruff]
 line-length = 88
-target-version = ["py310"]
-include = '\.pyi?$'
+target-version = "py310"
+select = [
+	"E", # pycodestyle errors
+	"W", # pycodestyle warnings
+	"F", # pyflakes
+	"I", # isort
+	"B", # flake8-bugbear
+	"C4", # flake8-comprehensions
+	"UP", # pyupgrade
+]
+ignore = [
+	"E501", # line too long (handled by formatter)
+	"B008", # do not perform function calls in argument defaults
+]
 
-[tool.isort]
-profile = "black"
-line_length = 88
-known_first_party = ["src_agent"]
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint.isort]
+known-first-party = ["src_agent"]
 
 [tool.mypy]
 python_version = "3.10"
@@ -55,7 +61,3 @@ python_classes = ["Test*"]
 python_functions = ["test_*"]
 addopts = "-v --tb=short"
 
-[tool.flake8]
-max-line-length = 88
-extend-ignore = ["E203", "E501", "W503"]
-exclude = [".git", "__pycache__", "build", "dist", ".eggs", "*.egg-info"]

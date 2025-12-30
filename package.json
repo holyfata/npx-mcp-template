@@ -33,22 +33,14 @@
 		"registry": "https://registry.npmjs.org/"
 	},
 	"scripts": {
-		"ai:build": "uv run pyinstaller -F --collect-data oxygent src_agent/main.py",
-		"ai:check": "pnpm run ai:check:import && pnpm run ai:check:format && pnpm run ai:check:lint && pnpm run ai:check:type",
-		"ai:check:format": "uv run black src_agent",
-		"ai:check:import": "uv run isort src_agent",
-		"ai:check:lint": "uv run flake8 src_agent",
-		"ai:check:type": "uv run mypy --disable-error-code import-untyped src_agent",
-		"ai:dev": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http://llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run src_agent/main.py",
-		"preai:start": "uv pip install dist/npx_mcp_agent-0.1.0-py3-none-any.whl",
-		"ai:start": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http://llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run start-agent",
-		"ai:test": "uv run pytest src_agent",
+		"py:build": "uv run pyinstaller -F --collect-data oxygent src_agent/main.py",
+		"py:check": "uv run ruff check --fix src_agent && uv run ruff format src_agent && uv run mypy --disable-error-code import-untyped src_agent",
 		"prepare": "husky",
+		"postinstall": "uv sync --extra dev",
 		"prepublishOnly": "pnpm run build",
 		"build": "unbuild",
 		"test": "vitest run",
-		"lint": "oxlint --fix --ignore-path=.gitignore --type-aware",
-		"format": "oxfmt --write --ignore-path=.gitignore",
+		"check": "oxlint --fix --ignore-path=.gitignore --type-aware && oxfmt --write --ignore-path=.gitignore",
 		"release": "changelogen --clean --release --push"
 	},
 	"dependencies": {
