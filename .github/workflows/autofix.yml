@@ -2,21 +2,21 @@ name: autofix.ci
 on: { push: {}, pull_request: {} }
 permissions: { contents: read }
 jobs:
-  autofix:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install uv
-        uses: astral-sh/setup-uv@v3
-      - uses: actions/checkout@v5
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10.15"
-      - run: npm i -fg corepack && corepack enable
-      - uses: actions/setup-node@v4
-        with: { node-version: lts/*, cache: "pnpm" }
-      - run: pnpm install
-      - run: pnpm check
-      - run: pnpm automd
-      - uses: autofix-ci/action@635ffb0c9798bd160680f18fd73371e355b85f27
-        with: { commit-message: "chore: apply automated updates" }
+    autofix:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Install uv
+              uses: astral-sh/setup-uv@v3
+            - uses: actions/checkout@v5
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: '3.10.15'
+            - run: npm i -fg corepack && corepack enable
+            - uses: actions/setup-node@v4
+              with: { node-version: lts/*, cache: 'pnpm' }
+            - run: pnpm install
+            - run: pnpm check
+            - run: pnpm automd
+            - uses: autofix-ci/action@635ffb0c9798bd160680f18fd73371e355b85f27
+              with: { commit-message: 'chore: apply automated updates' }

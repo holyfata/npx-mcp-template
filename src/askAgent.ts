@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import fs from 'node:fs';
 
 /**
  * 从 SSE 流中提取 answer 类型的 content
@@ -13,9 +13,9 @@ export const fetchSSEAnswer = async (
 	try {
 		// 发起 POST 请求
 		const response = await fetch(url, {
-			method: "POST",
+			method: 'POST',
 			headers: {
-				"Content-Type": "application/json",
+				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(postData),
 		});
@@ -27,13 +27,13 @@ export const fetchSSEAnswer = async (
 
 		// 处理 SSE 流式响应
 		if (!response.body) {
-			throw new Error("响应体为空");
+			throw new Error('响应体为空');
 		}
 
 		const reader = response.body.getReader();
 		const decoder = new TextDecoder();
-		let buffer = "";
-		let content = "";
+		let buffer = '';
+		let content = '';
 
 		while (true) {
 			const { done, value } = await reader.read();
@@ -46,33 +46,33 @@ export const fetchSSEAnswer = async (
 			buffer += decoder.decode(value, { stream: true });
 
 			// 处理缓冲区中的完整行
-			const lines = buffer.split("\n");
-			buffer = lines.pop() || ""; // 保留最后一个不完整的行
+			const lines = buffer.split('\n');
+			buffer = lines.pop() || ''; // 保留最后一个不完整的行
 
 			for (const line of lines) {
 				const trimmedLine = line.trim();
 
 				// 跳过空行和注释
-				if (!trimmedLine || trimmedLine.startsWith(":")) {
+				if (!trimmedLine || trimmedLine.startsWith(':')) {
 					continue;
 				}
 
 				// 处理 data: 开头的行
-				if (trimmedLine.startsWith("data: ")) {
+				if (trimmedLine.startsWith('data: ')) {
 					const data = trimmedLine.slice(6); // 移除 "data: " 前缀
 
 					// 尝试解析 JSON 数据
 					try {
 						const jsonData = JSON.parse(data);
 						// 只处理 answer 类型的数据
-						if (jsonData.type === "answer" && jsonData.content) {
+						if (jsonData.type === 'answer' && jsonData.content) {
 							content = jsonData.content;
 						}
 					} catch (e) {
 						// 如果不是 JSON，忽略
-						console.error("解析 JSON 数据失败：", e);
+						console.error('解析 JSON 数据失败：', e);
 					}
-				} else if (trimmedLine === "[DONE]") {
+				} else if (trimmedLine === '[DONE]') {
 					// SSE 流结束标记
 					break;
 				}
@@ -82,12 +82,12 @@ export const fetchSSEAnswer = async (
 		// 处理缓冲区中剩余的数据
 		if (buffer.trim()) {
 			const trimmedLine = buffer.trim();
-			if (trimmedLine.startsWith("data: ")) {
+			if (trimmedLine.startsWith('data: ')) {
 				const data = trimmedLine.slice(6);
 				try {
 					const jsonData = JSON.parse(data);
 					// 只处理 answer 类型的数据
-					if (jsonData.type === "answer" && jsonData.content) {
+					if (jsonData.type === 'answer' && jsonData.content) {
 						content = jsonData.content;
 					}
 				} catch (_e) {
@@ -98,15 +98,15 @@ export const fetchSSEAnswer = async (
 
 		return content;
 	} catch (error) {
-		console.error("请求异常：", error);
+		console.error('请求异常：', error);
 		throw error;
 	}
 };
 
 // 示例使用
 const ask = async (filePath: string) => {
-	return await fetchSSEAnswer("http://0.0.0.0:8001/sse/chat", {
-		query: fs.readFileSync(filePath, "utf-8"),
+	return await fetchSSEAnswer('http://0.0.0.0:8001/sse/chat', {
+		query: fs.readFileSync(filePath, 'utf-8'),
 	});
 };
 

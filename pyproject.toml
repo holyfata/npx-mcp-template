@@ -10,19 +10,17 @@ readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
 keywords = ["AI", "Agent", "MCP", "BDSH"]
-dependencies = [
-    "oxygent==1.0.10",
-]
+dependencies = ["oxygent==1.0.10"]
 
 [project.optional-dependencies]
 dev = [
-    "autopep8==2.3.2",
-    "black==25.12.0",
-    "flake8==7.3.0",
-    "isort==7.0.0",
-    "mypy==1.19.1",
-    "pyinstaller==6.17.0",
-    "pytest==9.0.2",
+	"autopep8==2.3.2",
+	"black==25.12.0",
+	"flake8==7.3.0",
+	"isort==7.0.0",
+	"mypy==1.19.1",
+	"pyinstaller==6.17.0",
+	"pytest==9.0.2",
 ]
 
 [project.scripts]
@@ -48,13 +46,7 @@ warn_unused_configs = true
 disallow_untyped_defs = false
 ignore_missing_imports = true
 disable_error_code = ["import-untyped"]
-exclude = [
-    "build/",
-    "dist/",
-    "^\\.git/",
-    "^\\.venv/",
-    "__pycache__",
-]
+exclude = ["build/", "dist/", "^\\.git/", "^\\.venv/", "__pycache__"]
 
 [tool.pytest.ini_options]
 testpaths = ["src_agent"]
@@ -66,11 +58,4 @@ addopts = "-v --tb=short"
 [tool.flake8]
 max-line-length = 88
 extend-ignore = ["E203", "E501", "W503"]
-exclude = [
-    ".git",
-    "__pycache__",
-    "build",
-    "dist",
-    ".eggs",
-    "*.egg-info",
-]
+exclude = [".git", "__pycache__", "build", "dist", ".eggs", "*.egg-info"]

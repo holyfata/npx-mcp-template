@@ -5,29 +5,33 @@
 	"keywords": [
 		"AI",
 		"Agent",
-		"MCP",
 		"BDSH",
-		"FE"
+		"FE",
+		"MCP"
 	],
 	"homepage": "http://xingyun.jd.com/codingRoot/BDSH_BEST_AI/bdshMCPTemplate/",
 	"bugs": {
 		"url": "http://xingyun.jd.com/codingRoot/BDSH_BEST_AI/bdshMCPTemplate/issues/"
 	},
+	"license": "MIT",
+	"author": "BDSH_BEST_AI",
 	"repository": {
 		"type": "git",
 		"url": "git+https://coding.jd.com/BDSH_BEST_AI/bdshMCPTemplate.git"
 	},
-	"license": "MIT",
-	"author": "BDSH_BEST_AI",
-	"type": "module",
-	"main": "./dist/index.mjs",
-	"types": "./dist/index.d.mts",
 	"bin": {
 		"packageCommand": "./dist/index.mjs"
 	},
 	"files": [
 		"dist"
 	],
+	"type": "module",
+	"main": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	},
 	"scripts": {
 		"ai:build": "uv run pyinstaller -F --collect-data oxygent src_agent/main.py",
 		"ai:check": "pnpm run ai:check:import && pnpm run ai:check:format && pnpm run ai:check:lint && pnpm run ai:check:type",
@@ -40,7 +44,6 @@
 		"ai:start": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http://llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run start-agent",
 		"ai:test": "uv run pytest src_agent",
 		"build": "pnpm run st:build && pnpm run ai:build",
-		"check": "pnpm run st:check && pnpm run ai:check",
 		"commit": "cz",
 		"dev": "pnpm run st:dev && pnpm run ai:dev",
 		"prepare": "husky",
@@ -49,16 +52,12 @@
 		"release": "changelogen --clean --release --push",
 		"sort": "sort-package-json",
 		"st:build": "unbuild",
-		"st:check": "oxlint --fix --ignore-path=.gitignore --type-aware",
+		"lint": "oxlint --fix --ignore-path=.gitignore --type-aware",
+		"format": "oxfmt --write --ignore-path=.gitignore",
 		"st:dev": "bun run src/index.ts --http --port=8000",
 		"st:start": "node ./dist/index.mjs --http --port=4000",
 		"st:test": "vitest run",
 		"test": "pnpm run st:test && pnpm run ai:test"
-	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "1.25.1",
@@ -76,6 +75,7 @@
 		"cz-conventional-changelog": "3.3.0",
 		"globals": "16.5.0",
 		"husky": "9.1.7",
+		"oxfmt": "0.21.0",
 		"oxlint": "1.36.0",
 		"oxlint-tsgolint": "0.10.0",
 		"sort-package-json": "3.6.0",
@@ -84,14 +84,15 @@
 		"vite": "7.3.0",
 		"vitest": "4.0.15"
 	},
-	"packageManager": "pnpm@10.13.1",
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
 	"engines": {
 		"node": ">=24.0.2",
 		"pnpm": ">=10.13.1"
 	},
-	"publishConfig": {
-		"access": "public",
-		"registry": "https://registry.npmjs.org/"
-	},
+	"packageManager": "pnpm@10.13.1",
 	"mcpName": "本地生活MCP模版项目"
 }

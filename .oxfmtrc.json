@@ -1,0 +1,15 @@
+{
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
+	"experimentalSortImports": {
+		"ignoreCase": true,
+		"newlinesBetween": true,
+		"partitionByComment": true,
+		"sortSideEffects": true
+	},
+	"experimentalSortPackageJson": true,
+	"jsxSingleQuote": true,
+	"quoteProps": "preserve",
+	"singleQuote": true,
+	"tabWidth": 4,
+	"useTabs": true
+}
