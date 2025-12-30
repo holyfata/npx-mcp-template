@@ -1,8 +1,7 @@
 {
 	"name": "@jd/bdsh-mcp-template",
-	"mcpName": "本地生活MCP模版项目",
-	"description": "这是本地生活MCP模版项目，用于快速搭建本地生活MCP服务",
 	"version": "1.0.0",
+	"description": "这是本地生活MCP模版项目，用于快速搭建本地生活MCP服务",
 	"keywords": [
 		"AI",
 		"Agent",
@@ -10,55 +9,58 @@
 		"BDSH",
 		"FE"
 	],
-	"license": "MIT",
-	"type": "module",
-	"main": "./dist/index.mjs",
-	"types": "./dist/index.d.mts",
-	"files": [
-		"dist"
-	],
-	"publishConfig": {
-		"access": "public",
-		"registry": "https://registry.npmjs.org/"
-	},
-	"bin": {
-		"packageCommand": "./dist/index.mjs"
+	"homepage": "http://xingyun.jd.com/codingRoot/BDSH_BEST_AI/bdshMCPTemplate/",
+	"bugs": {
+		"url": "http://xingyun.jd.com/codingRoot/BDSH_BEST_AI/bdshMCPTemplate/issues/"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://coding.jd.com/BDSH_BEST_AI/bdshMCPTemplate.git"
 	},
-	"homepage": "http://xingyun.jd.com/codingRoot/BDSH_BEST_AI/bdshMCPTemplate/",
-	"bugs": {
-		"url": "http://xingyun.jd.com/codingRoot/BDSH_BEST_AI/bdshMCPTemplate/issues/"
+	"license": "MIT",
+	"author": "BDSH_BEST_AI",
+	"type": "module",
+	"main": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
+	"bin": {
+		"packageCommand": "./dist/index.mjs"
 	},
+	"files": [
+		"dist"
+	],
 	"scripts": {
-		"st:test": "vitest run",
-		"st:check:format": "biome check --write --unsafe",
-		"st:check:type": "tsc --noEmit",
-		"st:check": "pnpm run st:check:format && pnpm run st:check:type",
-		"st:dev": "bun run src/index.ts --http --port=8000",
-		"st:build": "unbuild",
-		"st:start": "node ./dist/index.mjs --http --port=4000",
-		"ai:test": "uv run pytest src_agent",
-		"ai:check:import": "uv run isort src_agent",
+		"ai:build": "uv run pyinstaller -F --collect-data oxygent src_agent/main.py",
+		"ai:check": "pnpm run ai:check:import && pnpm run ai:check:format && pnpm run ai:check:lint && pnpm run ai:check:type",
 		"ai:check:format": "uv run black src_agent",
+		"ai:check:import": "uv run isort src_agent",
 		"ai:check:lint": "uv run flake8 src_agent",
 		"ai:check:type": "uv run mypy --disable-error-code import-untyped src_agent",
-		"ai:check": "pnpm run ai:check:import && pnpm run ai:check:format && pnpm run ai:check:lint && pnpm run ai:check:type",
 		"ai:dev": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http://llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run src_agent/main.py",
-		"ai:build": "uv run pyinstaller -F --collect-data oxygent src_agent/main.py",
 		"preai:start": "uv pip install dist/npx_mcp_agent-0.1.0-py3-none-any.whl",
 		"ai:start": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http://llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run start-agent",
-		"test": "pnpm run st:test && pnpm run ai:test",
-		"check": "pnpm run st:check && pnpm run ai:check",
-		"dev": "pnpm run st:dev && pnpm run ai:dev",
+		"ai:test": "uv run pytest src_agent",
 		"build": "pnpm run st:build && pnpm run ai:build",
+		"check": "pnpm run st:check && pnpm run ai:check",
+		"commit": "cz",
+		"dev": "pnpm run st:dev && pnpm run ai:dev",
 		"prepare": "husky",
 		"prepublishOnly": "pnpm run build",
-		"commit": "cz",
 		"push": "git push origin master",
-		"release": "changelogen --clean --release --push"
+		"release": "changelogen --clean --release --push",
+		"sort": "sort-package-json",
+		"st:build": "unbuild",
+		"st:check": "pnpm run st:check:format && pnpm run st:check:type",
+		"st:check:format": "biome check --write --unsafe",
+		"st:check:type": "tsc --noEmit",
+		"st:dev": "bun run src/index.ts --http --port=8000",
+		"st:start": "node ./dist/index.mjs --http --port=4000",
+		"st:test": "vitest run",
+		"test": "pnpm run st:test && pnpm run ai:test"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "1.25.1",
@@ -77,19 +79,20 @@
 		"cz-conventional-changelog": "3.3.0",
 		"globals": "16.5.0",
 		"husky": "9.1.7",
+		"sort-package-json": "3.6.0",
 		"typescript": "5.9.3",
 		"unbuild": "3.6.1",
 		"vite": "7.3.0",
 		"vitest": "4.0.15"
 	},
 	"packageManager": "pnpm@10.13.1",
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
-	},
 	"engines": {
 		"node": ">=24.0.2",
 		"pnpm": ">=10.13.1"
-	}
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	},
+	"mcpName": "本地生活MCP模版项目"
 }
