@@ -1,12 +1,14 @@
 {
-	"name": "packageName",
-	"mcpName": "mcpName",
-	"description": "This is a mcp server",
-	"version": "0.0.0",
+	"name": "@jd/bdsh-mcp-template",
+	"mcpName": "本地生活MCP模版项目",
+	"description": "这是本地生活MCP模版项目，用于快速搭建本地生活MCP服务",
+	"version": "1.0.0",
 	"keywords": [
 		"AI",
 		"Agent",
-		"MCP"
+		"MCP",
+		"BDSH",
+		"FE"
 	],
 	"license": "MIT",
 	"type": "module",
@@ -24,7 +26,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/betterhyq/repository"
+		"url": "git+http://xingyun.jd.com/codingRoot/BDSH_BEST_AI/bdshMCPTemplate/"
 	},
 	"scripts": {
 		"st:test": "vitest run",
@@ -52,9 +54,7 @@
 		"prepublishOnly": "pnpm run build",
 		"commit": "cz",
 		"push": "git push origin master",
-		"release": "changelogen --clean --release --push",
-		"setPermission": "chmod +x ./jd-publish.sh",
-		"publish:jd": "./jd-publish.sh"
+		"release": "changelogen --clean --release --push"
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "1.25.1",
@@ -83,5 +83,9 @@
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
 		}
+	},
+	"engines": {
+		"node": ">=24.0.2",
+		"pnpm": ">=10.13.1"
 	}
 }
