@@ -20,9 +20,6 @@ importers:
       fastmcp:
         specifier: 3.25.4
         version: 3.25.4(hono@4.11.1)
-      packageName:
-        specifier: 'link:'
-        version: 'link:'
       zod:
         specifier: 4.2.1
         version: 4.2.1
