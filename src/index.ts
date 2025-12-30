@@ -18,8 +18,6 @@ const pkgConfig = (
 	})
 ).config;
 
-console.log(pkgConfig);
-
 const main = defineCommand({
 	meta: {
 		name: pkgConfig.name,
@@ -104,10 +102,4 @@ const main = defineCommand({
 	},
 });
 
-// runMain(main).catch();
-
-const answer = await fetchSSEAnswer('http://0.0.0.0:9100/sse/chat', {
-	query: `计算 2 和 3 的乘积`,
-});
-
-console.log(answer);
+runMain(main).catch();
