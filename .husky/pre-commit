@@ -1,1 +1,2 @@
+pnpm py:check
 pnpm check

@@ -4,23 +4,60 @@ build-backend = "hatchling.build"
 
 [project]
 name = "npx-mcp-agent"
-version = "0.1.0"
-description = "Add your description here"
+version = "1.0.0"
+description = "本地生活MCP模版项目的Python Agent服务"
 readme = "README.md"
-requires-python = ">=3.10.15"
-dependencies = [
-    "autopep8==2.3.2",
-    "black==25.12.0",
-    "flake8==7.3.0",
-    "isort==7.0.0",
-    "mypy==1.19.1",
-    "oxygent==1.0.9",
-    "pyinstaller>=6.17.0",
-    "pytest==9.0.2",
-]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = ["AI", "Agent", "MCP", "BDSH"]
+dependencies = ["oxygent==1.0.10"]
+
+[project.optional-dependencies]
+dev = ["mypy==1.19.1", "pyinstaller==6.17.0", "pytest==9.0.2", "ruff==0.8.4"]
 
 [project.scripts]
 start-agent = "src_agent.main:entry_point"
 
 [tool.hatch.build.targets.wheel]
 only-include = ["src_agent/"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+select = [
+	"E", # pycodestyle errors
+	"W", # pycodestyle warnings
+	"F", # pyflakes
+	"I", # isort
+	"B", # flake8-bugbear
+	"C4", # flake8-comprehensions
+	"UP", # pyupgrade
+]
+ignore = [
+	"E501", # line too long (handled by formatter)
+	"B008", # do not perform function calls in argument defaults
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint.isort]
+known-first-party = ["src_agent"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+disable_error_code = ["import-untyped"]
+exclude = ["build/", "dist/", "^\\.git/", "^\\.venv/", "__pycache__"]
+
+[tool.pytest.ini_options]
+testpaths = ["src_agent"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
