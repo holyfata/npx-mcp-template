@@ -43,21 +43,13 @@
 		"preai:start": "uv pip install dist/npx_mcp_agent-0.1.0-py3-none-any.whl",
 		"ai:start": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http://llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run start-agent",
 		"ai:test": "uv run pytest src_agent",
-		"build": "pnpm run st:build && pnpm run ai:build",
-		"commit": "cz",
-		"dev": "pnpm run st:dev && pnpm run ai:dev",
 		"prepare": "husky",
 		"prepublishOnly": "pnpm run build",
-		"push": "git push origin master",
-		"release": "changelogen --clean --release --push",
-		"sort": "sort-package-json",
-		"st:build": "unbuild",
+		"build": "unbuild",
+		"test": "vitest run",
 		"lint": "oxlint --fix --ignore-path=.gitignore --type-aware",
 		"format": "oxfmt --write --ignore-path=.gitignore",
-		"st:dev": "bun run src/index.ts --http --port=8000",
-		"st:start": "node ./dist/index.mjs --http --port=4000",
-		"st:test": "vitest run",
-		"test": "pnpm run st:test && pnpm run ai:test"
+		"release": "changelogen --clean --release --push"
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "1.25.1",
@@ -71,23 +63,15 @@
 		"@vitest/coverage-v8": "4.0.15",
 		"automd": "0.4.2",
 		"changelogen": "0.6.2",
-		"commitizen": "4.3.1",
-		"cz-conventional-changelog": "3.3.0",
 		"globals": "16.5.0",
 		"husky": "9.1.7",
 		"oxfmt": "0.21.0",
 		"oxlint": "1.36.0",
 		"oxlint-tsgolint": "0.10.0",
-		"sort-package-json": "3.6.0",
 		"typescript": "5.9.3",
 		"unbuild": "3.6.1",
 		"vite": "7.3.0",
 		"vitest": "4.0.15"
-	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
 	},
 	"engines": {
 		"node": ">=24.0.2",
