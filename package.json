@@ -33,7 +33,7 @@
 		"registry": "https://registry.npmjs.org/"
 	},
 	"scripts": {
-		"py:build": "uv run pyinstaller -F --collect-data oxygent src_agent/main.py",
+		"py:build": "uv run pyinstaller --name start-backend-agent -F --collect-data oxygent src_agent/main.py",
 		"py:check": "uv run ruff check --fix src_agent && uv run ruff format src_agent && uv run mypy --disable-error-code import-untyped src_agent",
 		"prepare": "husky",
 		"postinstall": "uv sync --extra dev",
@@ -45,6 +45,8 @@
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "1.25.1",
+		"c12": "3.3.3",
+		"citty": "0.1.6",
 		"commander": "14.0.2",
 		"fastmcp": "3.25.4",
 		"zod": "4.2.1"

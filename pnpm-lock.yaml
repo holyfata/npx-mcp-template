@@ -11,6 +11,12 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: 1.25.1
         version: 1.25.1(hono@4.11.3)(zod@4.2.1)
+      c12:
+        specifier: 3.3.3
+        version: 3.3.3(magicast@0.5.1)
+      citty:
+        specifier: 0.1.6
+        version: 0.1.6
       commander:
         specifier: 14.0.2
         version: 14.0.2

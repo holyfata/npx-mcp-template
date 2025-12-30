@@ -1,5 +1,3 @@
-import fs from 'node:fs';
-
 /**
  * 从 SSE 流中提取 answer 类型的 content
  * @param url - 请求的 URL
@@ -102,12 +100,3 @@ export const fetchSSEAnswer = async (
 		throw error;
 	}
 };
-
-// 示例使用
-const ask = async (filePath: string) => {
-	return await fetchSSEAnswer('http://0.0.0.0:8001/sse/chat', {
-		query: fs.readFileSync(filePath, 'utf-8'),
-	});
-};
-
-export { ask };
