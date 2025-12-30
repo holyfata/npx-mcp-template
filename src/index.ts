@@ -6,7 +6,7 @@ import { z } from "zod";
 import pkg from "../package.json";
 import { add } from "./add";
 
-export const main = () => {
+export const main = async () => {
 	program.name(pkg.name).description(pkg.description).version(pkg.version);
 
 	program
@@ -54,7 +54,7 @@ export const main = () => {
 	});
 
 	if (http) {
-		server.start({
+		await server.start({
 			transportType: "httpStream",
 			httpStream: {
 				host: "0.0.0.0",
@@ -63,8 +63,8 @@ export const main = () => {
 		});
 		console.log(`🚀 MCP 服务器已启动 (HTTP 模式) - 端口: ${port || 3000}`);
 	} else {
-		server.start({ transportType: "stdio" });
+		await server.start({ transportType: "stdio" });
 	}
 };
 
-main();
+await main();

@@ -49,9 +49,7 @@
 		"release": "changelogen --clean --release --push",
 		"sort": "sort-package-json",
 		"st:build": "unbuild",
-		"st:check": "pnpm run st:check:format && pnpm run st:check:type",
-		"st:check:format": "biome check --write --unsafe",
-		"st:check:type": "tsc --noEmit",
+		"st:check": "oxlint --fix --ignore-path=.gitignore --type-aware",
 		"st:dev": "bun run src/index.ts --http --port=8000",
 		"st:start": "node ./dist/index.mjs --http --port=4000",
 		"st:test": "vitest run",
@@ -70,7 +68,6 @@
 		"zod": "4.2.1"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.10",
 		"@types/node": "24.10.2",
 		"@vitest/coverage-v8": "4.0.15",
 		"automd": "0.4.2",
@@ -79,6 +76,8 @@
 		"cz-conventional-changelog": "3.3.0",
 		"globals": "16.5.0",
 		"husky": "9.1.7",
+		"oxlint": "1.36.0",
+		"oxlint-tsgolint": "0.10.0",
 		"sort-package-json": "3.6.0",
 		"typescript": "5.9.3",
 		"unbuild": "3.6.1",

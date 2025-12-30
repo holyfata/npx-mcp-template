@@ -68,8 +68,9 @@ export const fetchSSEAnswer = async (
 						if (jsonData.type === "answer" && jsonData.content) {
 							content = jsonData.content;
 						}
-					} catch (_e) {
+					} catch (e) {
 						// 如果不是 JSON，忽略
+						console.error("解析 JSON 数据失败：", e);
 					}
 				} else if (trimmedLine === "[DONE]") {
 					// SSE 流结束标记
