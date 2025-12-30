@@ -26,7 +26,11 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+http://xingyun.jd.com/codingRoot/BDSH_BEST_AI/bdshMCPTemplate/"
+		"url": "git+https://coding.jd.com/BDSH_BEST_AI/bdshMCPTemplate.git"
+	},
+	"homepage": "http://xingyun.jd.com/codingRoot/BDSH_BEST_AI/bdshMCPTemplate/",
+	"bugs": {
+		"url": "http://xingyun.jd.com/codingRoot/BDSH_BEST_AI/bdshMCPTemplate/issues/"
 	},
 	"scripts": {
 		"st:test": "vitest run",
@@ -42,10 +46,10 @@
 		"ai:check:lint": "uv run flake8 src_agent",
 		"ai:check:type": "uv run mypy --disable-error-code import-untyped src_agent",
 		"ai:check": "pnpm run ai:check:import && pnpm run ai:check:format && pnpm run ai:check:lint && pnpm run ai:check:type",
-		"ai:dev": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http: //llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run src_agent/main.py",
+		"ai:dev": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http://llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run src_agent/main.py",
 		"ai:build": "uv run pyinstaller -F --collect-data oxygent src_agent/main.py",
 		"preai:start": "uv pip install dist/npx_mcp_agent-0.1.0-py3-none-any.whl",
-		"ai:start": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http: //llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run start-agent",
+		"ai:start": "DEFAULT_LLM_API_KEY=\"EMPTY\" DEFAULT_LLM_BASE_URL=\"http://llm-32b.jd.com/v1/chat/completions\" DEFAULT_LLM_MODEL_NAME=\"qwen25-32b-native\" uv run start-agent",
 		"test": "pnpm run st:test && pnpm run ai:test",
 		"check": "pnpm run st:check && pnpm run ai:check",
 		"dev": "pnpm run st:dev && pnpm run ai:dev",
