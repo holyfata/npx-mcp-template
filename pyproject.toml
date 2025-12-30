@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "npx-mcp-agent"
+name = "bdsh-mcp-template"
 version = "1.0.0"
 description = "本地生活MCP模版项目的Python Agent服务"
 readme = "README.md"

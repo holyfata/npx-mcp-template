@@ -8,9 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@betterhyq/ask-oxygent':
+        specifier: 1.0.1
+        version: 1.0.1
       '@modelcontextprotocol/sdk':
         specifier: 1.25.1
         version: 1.25.1(hono@4.11.3)(zod@4.2.1)
+      c12:
+        specifier: 3.3.3
+        version: 3.3.3(magicast@0.5.1)
+      citty:
+        specifier: 0.1.6
+        version: 0.1.6
       commander:
         specifier: 14.0.2
         version: 14.0.2
@@ -77,6 +86,9 @@ packages:
   '@babel/types@7.28.5':
     resolution: {integrity: sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA==}
     engines: {node: '>=6.9.0'}
+
+  '@betterhyq/ask-oxygent@1.0.1':
+    resolution: {integrity: sha512-afLuXImJtLogmQXTp03dxMoncE4qBhokyp3MYgfL7aaX9yyavfw/LaR8xGCiShwmWWEceC3zyc40CXKfrhh1Ag==}
 
   '@borewit/text-codec@0.1.1':
     resolution: {integrity: sha512-5L/uBxmjaCIX5h8Z+uu+kA9BQLkc/Wl06UGR5ajNRxu+/XjonB5i8JpgFMrPj3LXTCPA0pv8yxUvbUi+QthGGA==}
@@ -2088,6 +2100,8 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
     optional: true
+
+  '@betterhyq/ask-oxygent@1.0.1': {}
 
   '@borewit/text-codec@0.1.1': {}
 

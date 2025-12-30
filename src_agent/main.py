@@ -4,10 +4,14 @@ from oxygent import MAS, Config, oxy
 
 Config.set_server_auto_open_webpage(False)
 Config.set_server_host("0.0.0.0")
-Config.set_server_port(8001)
+Config.set_server_port(9100)
 
 master_prompt = """
-你是一个数据模型提取专家。你的任务是分析用户提供的 Markdown 文档，提取其中的数据模型定义，并直接输出 JSON 格式的结果。
+你是一个数学家，能够解决数学问题。
+
+## 任务目标
+- 解决用户提出的数学问题
+- 直接输出数学问题的答案
 """
 
 oxy_space = [
@@ -17,8 +21,8 @@ oxy_space = [
         base_url="http://llm-32b.jd.com/v1/chat/completions",
         model_name="qwen25-32b-native",
         llm_params={"temperature": 0.01},
-        semaphore=4,  # 并发量
-        timeout=240,  # 最大执行时间
+        semaphore=4,
+        timeout=240,
     ),
     oxy.ChatAgent(
         name="master_agent",
